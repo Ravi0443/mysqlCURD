@@ -29,10 +29,9 @@ const upload = multer({
     });
 
 //Post data to table 
-router.post('/addPosts',(req, res) => {
-    // const host = req.hostname;
-    // const filePath = req.protocol + "://" + host + '/' + req.file.path;
-    // console.log(req.file);
+router.post('/addPosts', upload.single('image'),(req, res) => {
+
+    console.log(req.file);
     let post = new postModel(
         { 
             title: req.body.title, 
